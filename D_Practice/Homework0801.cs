@@ -2,13 +2,35 @@
 
 namespace C_OOP
 {
-    internal class Homework0801
+    // Homework0801
+    internal class Complex
     {
-        internal double Foo(double ab, double bc, double ac)
+        public double Imaginary { get; private set; }
+        public double Real { get; private set; }
+        public Complex(double real, double imaginary)
         {
-            double p = (ab + bc + ac) / 2;
+            Imaginary = imaginary;
+            Real = real;
+        }
 
-            return Math.Sqrt(p * (p - ab) * (p - bc) * (p - ac));
+        public static Complex Plus(Complex first, Complex second)
+        {
+            return new Complex(first.Real + second.Real, first.Imaginary + second.Imaginary);
+        }
+
+        public static Complex Minus(Complex first, Complex second)
+        {
+            return new Complex(first.Real - second.Real, first.Imaginary - second.Imaginary);
+        }
+
+        public Complex Plus(Complex second)
+        {
+            return new Complex(this.Real + second.Real, this.Imaginary + second.Imaginary);
+        }
+
+        public Complex Minus(Complex second)
+        {
+            return new Complex(this.Real - second.Real, this.Imaginary - second.Imaginary);
         }
     }
 }
