@@ -4,8 +4,8 @@ using System.Runtime.CompilerServices;
 
 //Homework0801
 /*
- Разработать класс представляющий комплексное число. Класс должен содержать два свойства для представления вещественной (double) и мнимой части (double). 
-Сделать так, чтобы создать экземпляр класса без передачи соответствующих аргументов было невозможно.
+Develop a class representing a complex number. The class must contain two properties to represent the real (double) and imaginary parts (double).
+It was impossible to create an instance of a class without passing the appropriate arguments.
  */
 //var homework0801 = new Homework0801();
 //double result = homework0801.Foo(1.0,2.0,3.0);
@@ -13,77 +13,39 @@ using System.Runtime.CompilerServices;
 
 //Homework0803
 /*
- Разработать игру "угадай число".
+Develop a "guess the number" game.
 
-Один из игроков загадывает число от 0 до 100 (по умолчанию), а второй пытается угадать за лимитированное число попыток (5 по умолчанию). 
-Когда второй игрок делает предположение о загаданном числе, первый игрок сообщает о том угадано ли число, меньше ли оно загаданного, или 
-больше. Если угадано - игра завершена. Если меньше или больше загаданного, то второй игрок сужает область поиска и продолжает пытаться 
-угадывать. Так происходит до тех пор пока либо число не угадано, либо исчерпано кол-во попыток.
+One of the players guesses a number from 0 to 100 (by default), and the second tries to guess in a limited number of attempts (5 by default).
+When the second player makes a guess about the hidden number, the first player reports whether the number was guessed, whether it is less than the guessed number, or
+more. If you guess correctly, the game is over. If there is less or more than what was hidden, then the second player narrows the search area and continues to try
+guess. This happens until either the number is guessed or the number of attempts is exhausted.
 
-Загадывать может как человек, так и машина. Соответственно и угадывать может как человек, так и машина. Это значит, что надо реализовать 
-два режима игры: когда загадывает машина и когда загадывает человек.
+Both a person and a machine can make a wish. Accordingly, both a person and a machine can guess. This means that we need to implement
+two game modes: when the machine makes a wish and when a person makes a wish.
 
-Если загадывает человек, а угадывает машина, то нужно сделать так, чтобы машина пыталась угадать число, используя алгоритм бинарного поиска.
+If a person guesses and a machine guesses, then you need to make sure that the machine tries to guess the number using a binary search algorithm.
 
-Пример бинарного поиска загаданного числа: загадано число 18, при условии, что число загадывалось в диапазоне от 0 до 100. Игрок каждый 
-раз берёт середину, т.е. на первой попытке предполагает число 50. Первый игрок говорит, что загаданное число меньше. Значит число лежит 
-между 0 и 50. Тогда второй игрок снова делит диапазон на 2 и предполагает 25. Первый игрок говорит, что загаданное число меньше. Значит 
-число между 0 и 25. Тогда второй игрок снова делит диапазон на 2 и предполагает 12 (дробную часть мы просто срезаем). Первый игрок 
-говорит, что загаданное число больше. Значит число лежит в диапазоне между 12 и 25. Второй игрок делить диапазон на два и предполагает 18. 
-Первый игрок говорит, что число угадано. Игра завершена.
+An example of a binary search for a hidden number: the number 18 was guessed, provided that the number was guessed in the range from 0 to 100. Each player
+once takes the middle, i.e. On the first try, he guesses the number 50. The first player says that the guessed number is less. So the number lies
+between 0 and 50. Then the second player again divides the range by 2 and guesses 25. The first player says that the guessed number is less. Means
+a number between 0 and 25. Then the second player again divides the range by 2 and guesses 12 (we simply cut off the fractional part). First player
+says that the hidden number is greater. This means the number lies in the range between 12 and 25. The second player divides the range by two and guesses 18.
+The first player says that the number is correct. Game over.
 
-На каждой попытке , благодаря так стратегии, диапазон поиска сужается в два раза. Это и есть суть бинарного поиска. В конце игры выводится 
-информация о том достигнута ли победа или нет. Конечно же, будет необходимо реализовать диалог между игроками.
+On each attempt, thanks to this strategy, the search range is narrowed by half. This is the essence of binary search. At the end of the game it is displayed
+information about whether victory has been achieved or not. Of course, it will be necessary to implement dialogue between players.
  */
+//var homework0803 = new Homework0803();
+//homework0803.Game();
+
+//Homework0805
+/*
+Tic tac toe
+*/
+var homework0805 = new Homework0805();
 while (true)
 {
-    Console.WriteLine($"Homework0803. Set game. Who choose number Person or PC?");
-    string gameMode = Console.ReadLine();
-    if (gameMode == "Person")
-    {
-        try
-        {
-            Console.WriteLine($"Choose number.");
-            int answer = int.Parse(Console.ReadLine());
-            Console.WriteLine($"Choose counter.");
-            int count = int.Parse(Console.ReadLine());
-            var homework0803 = new Homework0803(count, answer);
-            if (homework0803.TryFindNumber(answer))
-                Console.WriteLine("PC win");
-            else
-                Console.WriteLine("PC loose");
-        }
-        catch
-        {
-            Console.WriteLine("Use only numbers.");
-        }
-    }
-    else if (gameMode == "PC")
-    {
-        var homework0803 = new Homework0803();
-        Console.WriteLine($"You have {homework0803.Count} tries. Write number:");
-        for (int i = 0; i < homework0803.Count; i++)
-        {
-            int number = int.Parse(Console.ReadLine());
-
-            if (number == homework0803.Answer)
-            {
-                Console.WriteLine("You win!");
-                break;
-            }
-            else if (number > homework0803.Answer)
-                Console.WriteLine("Your number bigger than PC number.");
-            else
-                Console.WriteLine("Your number smaller than PC number.");
-
-            if (i == homework0803.Count)
-            {
-                Console.WriteLine("You loose!");
-                break;
-            }
-            Console.WriteLine($"You have {homework0803.Count} tries. Write number:");
-        }
-    }
-    else
-        Console.WriteLine("Write \"Person\" or \"PC\"");
+    Console.WriteLine("Start?");
+    Console.ReadLine();
+    homework0805.Game();
 }

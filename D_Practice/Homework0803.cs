@@ -56,14 +56,61 @@ namespace D_Practice
             return false;
         }
 
-        public int TryNumber(int number, int answer)
+        public void Game()
         {
-            if (number == answer)
-                return 2;
-            else if (number > answer)
-                return 1;
-            else
-                return 0;
+
+            while (true)
+            {
+                Console.WriteLine($"Homework0803. Set game. Who choose number Person or PC?");
+                string gameMode = Console.ReadLine();
+                if (gameMode == "Person")
+                {
+                    try
+                    {
+                        Console.WriteLine($"Choose number.");
+                        int answer = int.Parse(Console.ReadLine());
+                        Console.WriteLine($"Choose counter.");
+                        int count = int.Parse(Console.ReadLine());
+                        var homework0803 = new Homework0803(count, answer);
+                        if (homework0803.TryFindNumber(answer))
+                            Console.WriteLine("PC win");
+                        else
+                            Console.WriteLine("PC loose");
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Use only numbers.");
+                    }
+                }
+                else if (gameMode == "PC")
+                {
+                    var homework0803 = new Homework0803();
+                    Console.WriteLine($"You have {homework0803.Count} tries. Write number:");
+                    for (int i = 0; i < homework0803.Count; i++)
+                    {
+                        int number = int.Parse(Console.ReadLine());
+
+                        if (number == homework0803.Answer)
+                        {
+                            Console.WriteLine("You win!");
+                            break;
+                        }
+                        else if (number > homework0803.Answer)
+                            Console.WriteLine("Your number bigger than PC number.");
+                        else
+                            Console.WriteLine("Your number smaller than PC number.");
+
+                        if (i == homework0803.Count)
+                        {
+                            Console.WriteLine("You loose!");
+                            break;
+                        }
+                        Console.WriteLine("Write number:");
+                    }
+                }
+                else
+                    Console.WriteLine("Write \"Person\" or \"PC\"");
+            }
         }
     }
 }
