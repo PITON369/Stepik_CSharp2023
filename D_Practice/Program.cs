@@ -42,10 +42,24 @@ information about whether victory has been achieved or not. Of course, it will b
 /*
 Tic tac toe
 */
-var homework0805 = new Homework0805();
+//var homework0805 = new Homework0805();
+//while (true)
+//{
+//    Console.WriteLine("Start?");
+//    Console.ReadLine();
+//    homework0805.Game();
+//}
+
+//Homework0807
+//Hangman
+/*
+The computer guesses any word taken from the dictionary (a link to the dictionary is attached). 
+A person tries to guess the word by naming letters. If the letter is in the word, the computer 
+reveals the guessed letters. Unguessed letters are not revealed, but are displayed, for example, 
+dashes (hyphens). There is a limited number of attempts (by default, maximum 6). If the attempts 
+are exhausted, the person loses, the game ends and the hidden word and the number of mistakes made 
+by the player are shown.
+*/
+var homework0807 = new Homework0807();
 while (true)
-{
-    Console.WriteLine("Start?");
-    Console.ReadLine();
-    homework0805.Game();
-}
+    homework0807.Game();
