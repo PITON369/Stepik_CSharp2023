@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "C_OOP", "C_OOP\C_OOP.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "D_Practice", "D_Practice\D_Practice.csproj", "{F6E84EC8-FA00-43DF-B5C1-0729F1B3D2F3}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E_LINQ", "E_LINQ\E_LINQ.csproj", "{1B87A8E9-F059-49B2-8E78-7455AEBB12C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{F6E84EC8-FA00-43DF-B5C1-0729F1B3D2F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6E84EC8-FA00-43DF-B5C1-0729F1B3D2F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6E84EC8-FA00-43DF-B5C1-0729F1B3D2F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B87A8E9-F059-49B2-8E78-7455AEBB12C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B87A8E9-F059-49B2-8E78-7455AEBB12C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B87A8E9-F059-49B2-8E78-7455AEBB12C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B87A8E9-F059-49B2-8E78-7455AEBB12C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
